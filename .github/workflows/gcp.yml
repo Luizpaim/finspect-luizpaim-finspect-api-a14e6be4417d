@@ -7,7 +7,7 @@ on:
     workflow_dispatch:
 jobs:
 pass-secrets-to-workflow:
-      uses: ./.github/workflows/called-workflow.yml
+      uses: ./.github/workflows/gcp.yml
       secrets: inherit
   deploy:
     name: Setup Gcloud Account
