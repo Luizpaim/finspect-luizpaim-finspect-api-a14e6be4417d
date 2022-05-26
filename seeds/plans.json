@@ -1,0 +1,12 @@
+[
+    {
+        "_id" : {"$oid" : "5b477536cb7de051e7be0710"},
+        "description" : "ouro",
+        "value" : 10000,
+        "maxCompanies" : 20,
+        "deleted" : false,
+        "createdAt" : {"$date" : "2018-07-11T22:08:04.382Z"},
+        "updatedAt" : {"$date" : "2018-07-11T22:08:04.382Z"},
+        "__v" : 0
+    } 
+]

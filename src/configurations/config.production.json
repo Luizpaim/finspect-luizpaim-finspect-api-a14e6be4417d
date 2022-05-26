@@ -1,0 +1,12 @@
+{
+  "database": {
+    "connectionString": "mongodb://localhost:27017/finspect"
+  },
+  "server": {
+    "port": 5000,
+    "jwtSecret": "random-secret-password",
+    "jwtExpiration": "7d",
+    "routePrefix": "",
+    "plugins": ["logger", "jwt-auth"]
+  }
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "roles" : [
+            "admin"
+        ],
+        "email" : "admin@nh",
+        "password" : "$2a$08$qkCcaInyVV7a.UZpYhaxDONPjyrShCpQvOmW7sPUTnhKWipa.XYFO",
+        "name" : "Super Admin",
+        "createdAt" : {"$date" : "2018-07-11T21:53:31.984Z"},
+        "updatedAt" : {"$date" : "2018-07-11T21:53:31.984Z"},
+        "__v" : 0,
+        "deleted" : false
+    }  
+]

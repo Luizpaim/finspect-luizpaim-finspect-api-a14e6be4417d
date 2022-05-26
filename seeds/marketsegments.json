@@ -1,0 +1,12 @@
+[
+    {
+        "_id" : {"$oid" : "5b477462cb7de051e7be070f"},
+        "industryId" : {"$oid" : "5b4773f0cb7de051e7be070e"},
+        "name" : "Têxtil",
+        "description" : "",
+        "deleted" : false,
+        "createdAt" : {"$date" : "2018-07-11T22:09:04.382Z"},
+        "updatedAt" : {"$date" : "2018-07-11T22:09:04.382Z"},
+        "__v" : 0   
+    }
+]

@@ -1,0 +1,53 @@
+image: atlassian/default-image:2
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Build master
+          caches:
+            - docker
+          script:
+            - ./build-config.sh
+            - docker build -t ${REPOSITORY_URL}:latest .
+            - docker push ${REPOSITORY_URL}:latest
+            - docker tag ${REPOSITORY_URL}:latest ${REPOSITORY_URL}:${BITBUCKET_COMMIT}
+            - docker push ${REPOSITORY_URL}:${BITBUCKET_COMMIT}
+          services:
+            - docker
+      - step:
+          name: Deploy to production
+          deployment: production
+          script:
+           - ssh finspect_nh@35.231.192.248 'cd /srv/finspect && /opt/bin/docker-compose pull api-production && /opt/bin/docker-compose up -d api-production && exit'
+    develop:
+      - step:
+          name: Build develop
+          caches:
+            - docker
+          script:
+            - ./build-config.sh
+            - docker build -t ${REPOSITORY_URL}:staging .
+            - docker push ${REPOSITORY_URL}:staging
+            - docker tag ${REPOSITORY_URL}:staging ${REPOSITORY_URL}:${BITBUCKET_COMMIT}
+            - docker push ${REPOSITORY_URL}:${BITBUCKET_COMMIT}
+          services:
+            - docker
+      - step:
+          name: Deploy to staging
+          deployment: staging
+          script:
+           - ssh finspect_nh@35.231.192.248 'cd /srv/finspect && /opt/bin/docker-compose pull api-staging && /opt/bin/docker-compose up -d api-staging && exit'
+    build-test:
+      - step:
+          name: Build TEST
+          caches:
+            - docker
+          script:
+            - ./build-config.sh
+            - docker build -t ${REPOSITORY_URL}:test .
+            - docker push ${REPOSITORY_URL}:test
+            - docker tag ${REPOSITORY_URL}:test ${REPOSITORY_URL}:${BITBUCKET_COMMIT}
+            - docker push ${REPOSITORY_URL}:${BITBUCKET_COMMIT}
+          services:
+            - docker
