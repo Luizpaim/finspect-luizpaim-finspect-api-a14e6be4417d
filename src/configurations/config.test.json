@@ -3,7 +3,7 @@
     "connectionString": "mongodb://localhost:27017/taskdb-test"
   },
   "server": {
-    "port": 5000,
+    "port": 8080,
     "jwtSecret": "random-secret-password",
     "jwtExpiration": "1h",
     "routePrefix": "",
