@@ -8,6 +8,6 @@ RUN yarn install --production=false
 ADD . /app
 RUN yarn build
 
-EXPOSE 5000
+EXPOSE 8080
 
 ENTRYPOINT ["node", "./build/src/index.js"]
