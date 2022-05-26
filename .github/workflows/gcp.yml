@@ -4,7 +4,13 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+on:
+  workflow_dispatch:
 
+jobs:
+  pass-secrets-to-workflow:
+      uses: ./.github/workflows/called-workflow.yml
+      secrets: inherit
 jobs:
   deploy:
     name: Setup Gcloud Account
