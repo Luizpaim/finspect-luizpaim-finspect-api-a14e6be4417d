@@ -9,5 +9,7 @@ ADD . /app
 RUN yarn build
 
 EXPOSE 8080
+ENV PORT 8080
+ENV HOST 0.0.0.0
 
 ENTRYPOINT ["node", "./build/src/index.js"]
