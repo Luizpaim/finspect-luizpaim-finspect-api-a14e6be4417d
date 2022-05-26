@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: GCP_PROJECT_ID, GCP_CREDENTIALS
     env:
-      IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}:latest
+      IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/site:latest
     steps:
       # Git checar codigo fonte
       - name: Checkout
