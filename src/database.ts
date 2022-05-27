@@ -40,7 +40,7 @@ export interface IDatabase {
 
 export function init(config: IDataConfiguration): IDatabase {
   (<any>Mongoose).Promise = Promise;
-  Mongoose.connect(config.connectionString);
+  Mongoose.connect("mongodb+srv://finspect-development:development@cluster0.6dkvq.mongodb.net/finspect-dev");
 
   let mongoDb = Mongoose.connection;
 
