@@ -10,7 +10,7 @@ jobs:
     name: Setup Gcloud Account
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/site:latest
+      IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-finspect:latest
 
     steps:
       # Git checar codigo fonte
@@ -37,5 +37,6 @@ jobs:
 
       # deploy image
       - name: Deploy Docker image
-        run: gcloud run deploy site --image $IMAGE_NAME --region us-central1 --memory 300Mi --min-instances 0 --max-instances 1 --platform managed --port 8080 --allow-unauthenticated
+        run: gcloud run deploy api-finspect --image $IMAGE_NAME --region us-central1 --memory 512Mi --min-instances 0 --max-instances 8 --platform managed --port 8080 --allow-unauthenticated
+
 
